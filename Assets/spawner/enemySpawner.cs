@@ -104,6 +104,128 @@ public class enemySpawner : MonoBehaviour {
 			return 4;
 		}
 	}
+	
+	
+	//SUPER ALGORITMO DE SPAWN!
+	/* Sufixos
+	 std = standart enemy
+	 fst = fast enemy
+	 ddg = dodger enemy
+	 tnk = tank enemy	 
+	 gst = ghost enemy
+	 pnx = phoenix enemy
+	 */
+	
+	float stdCont = 0;
+	float stdContLimit = 5f;
+	float stdValue = 0;
+	float stdBase = 1;
+	float fstCont = 0;
+	float fstContLimit = 9f;
+	float fstValue = 0;
+	float fstBase = 2;
+	float ddgCont = 0;
+	float ddgContLimit = 13.5f;
+	float ddgValue = 0;
+	float ddgBase = 3;
+	float tnkCont = 0;
+	float tnkContLimit = 17.5f;
+	float tnkValue = 0;
+	float tnkBase = 4;
+	float gstCont = 0;
+	float gstContLimit = 21f;
+	float gstValue = 0;
+	float gstBase = 5;
+	float pnxCont = 0;
+	float pnxContLimit = 25f;
+	float pnxValue = 0;
+	float pnxBase = 6;
+	
+	void ComplexSpawnUpdate (){
+		//adiciona nos contadores
+		float dTime = Time.deltaTime;
+		stdCont += dTime;
+		fstCont += dTime;
+		ddgBase += dTime;
+		tnkCont += dTime;
+		gstCont += dTime;
+		pnxCont += dTime;
+		
+		//verifica o valor dos contadores para incrementar o Value
+		if(stdCont >= stdContLimit){
+			stdValue++;
+			stdCont = 0;
+		}
+		if(fstCont >= fstContLimit){
+			fstValue++;
+			fstCont = 0;
+		}
+		if(ddgCont >= ddgContLimit){
+			ddgValue++;
+			ddgCont = 0;
+		}
+		if(tnkCont >= tnkContLimit){
+			tnkValue++;
+			tnkCont = 0;
+		}
+		if(gstCont >= gstContLimit){
+			gstValue++;
+			gstCont = 0;
+		}
+		if(pnxCont >= pnxContLimit){
+			pnxValue++;
+			pnxCont = 0;
+		}
+	}
+	
+	public void ComplexSpawn (){
+		float totalValue = 0;
+		totalValue += stdValue * stdBase;
+		totalValue += fstValue * fstBase;
+		totalValue += ddgValue * ddgBase;
+		totalValue += tnkValue * tnkBase;
+		totalValue += gstValue * gstBase;
+		totalValue += pnxValue * pnxBase;
+		
+		float randomNumber = Random.Range(1, totalValue);
+		float testValue = 0;
+		testValue += stdValue * stdBase;
+		if(randomNumber < testValue){
+			//spawn Standart
+			InstantiateEnemy(enemyModels[0]);
+			return;
+		}
+		testValue += fstValue * fstBase;
+		if(randomNumber < testValue){
+			//spawn Fast
+			InstantiateEnemy(enemyModels[1]);
+			return;
+		}
+		testValue += ddgValue * ddgBase;
+		if(randomNumber < testValue){
+			//spawn Dodge
+			InstantiateEnemy(enemyModels[3]);
+			return;
+		}
+		testValue += tnkValue * tnkBase;
+		if(randomNumber < testValue){
+			//spawn Tank
+			InstantiateEnemy(enemyModels[2]);
+			return;
+		}
+		testValue += gstValue * gstBase;
+		if(randomNumber < testValue){
+			//spawn Ghost
+			InstantiateEnemy(enemyModels[4]);
+			return;
+		}
+		testValue += pnxValue * pnxBase;
+		if(randomNumber < testValue){
+			//spawn Phoeni5
+			InstantiateEnemy(enemyModels[5]);
+			return;
+		}
+	}
 }
 
 
