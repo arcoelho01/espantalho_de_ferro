@@ -13,6 +13,8 @@ public class CProjectile : MonoBehaviour {
 	private Vector3 direction;
 	private float fTimeToLive = 10.0f;
 
+	Transform trShooter;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -58,10 +60,44 @@ public class CProjectile : MonoBehaviour {
 
 			if(eScript) {
 
+				// Does the damage
 				eScript.TakeDamage(fDamage);
 			}
-			// Collision with enemy
-			Debug.LogWarning("Hit on " + other.gameObject);
+
+			// Destroy the projectile
+			Die();
 		}
+		//else if(other.gameObject.layer == 9 && other.gameObject.transform != trShooter) {
+
+		//	// Get the tower component
+		//	TowerAim towerScript = other.gameObject.GetComponent<TowerAim>();
+
+		//	if(towerScript) {
+
+		//		// Take the hit
+		//		towerScript.TakeDamage(fDamage);
+		//	}
+
+		//	// Destroy the projectile
+		//	Die();
+		//}
+	}
+
+	/// <summary>
+	/// Keeps who shot this projectile
+	/// </summary>
+	public void SetShooter(Transform tShooter) {
+
+		trShooter = tShooter;
+
+		// DEBUG
+		Debug.Log("Shooter set to " + trShooter);
+	}
+
+	/// <summary>
+	/// </summary>
+	protected virtual void Die() {
+
+		Destroy(gameObject);
 	}
 }

@@ -22,6 +22,8 @@ public class TowerAim : MonoBehaviour {
 	//Tower
 
 	private Heart heart;
+
+	public float fHealth = 200.0f;
 	
 	// Use this for initialization
 	void Start () {
@@ -113,6 +115,7 @@ public class TowerAim : MonoBehaviour {
 		heart.gameObject.audio.Play();
 		// Create the bullet
 		CProjectile newBullet = (CProjectile)GameObject.Instantiate(trBulletType, transform.position, transform.rotation);
+		newBullet.SetShooter(this.transform);
 
 		//
 		myColor.a = 1.0f;
@@ -127,5 +130,27 @@ public class TowerAim : MonoBehaviour {
 			heart.gameObject.audio.clip=heart.jumpInSound;
 			heart.gameObject.audio.Play();
 		}
+	}
+
+	/// <summary>
+	/// </summary>
+	public virtual void TakeDamage(float fAmount) {
+
+		fHealth -= fAmount;
+
+		// DEBUG
+		Debug.Log(this.transform + " Damage: " + fAmount + " Current health: " + fHealth);
+
+		if(fHealth <= 0) {
+
+			Die();
+		}
+	}
+
+	/// <summary>
+	/// </summary>
+	protected virtual void Die() {
+
+		Destroy(gameObject);
 	}
 }
