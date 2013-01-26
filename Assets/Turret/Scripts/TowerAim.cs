@@ -151,6 +151,11 @@ public class TowerAim : MonoBehaviour {
 			heart.gameObject.audio.clip=heart.jumpInSound;
 			heart.gameObject.audio.Play();
 		}
+		if(other.gameObject.layer==8){
+			Debug.Log ("hit");	
+			TakeDamage(10);
+			Destroy(other.gameObject);
+		}
 	}
 
 	/// <summary>
@@ -171,7 +176,6 @@ public class TowerAim : MonoBehaviour {
 	/// <summary>
 	/// </summary>
 	protected virtual void Die() {
-
-		Destroy(gameObject);
+		transform.position=new Vector3(0,-10,0);
 	}
 }
