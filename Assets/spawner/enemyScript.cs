@@ -7,7 +7,7 @@ public class enemyScript : MonoBehaviour {
 	public float moveSpeed;
 	public int hitPoints;
 	
-	protected float fHealth = 100.0f;
+	protected float fHealth = 20.0f;
 	
 	public CharacterController CC; //variável que guarda a informação do componente Character Controller deste objeto
 	
