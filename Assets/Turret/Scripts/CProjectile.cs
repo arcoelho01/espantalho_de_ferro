@@ -73,20 +73,20 @@ public class CProjectile : MonoBehaviour {
 			// Destroy the projectile
 			Die();
 		}
-		//else if(other.gameObject.layer == 9 && other.gameObject.transform != trShooter) {
+		else if(other.gameObject.layer == 9 && other.gameObject.transform != trShooter) {
 
-		//	// Get the tower component
-		//	TowerAim towerScript = other.gameObject.GetComponent<TowerAim>();
+			// Get the tower component
+			TowerAim towerScript = other.gameObject.GetComponent<TowerAim>();
 
-		//	if(towerScript) {
+			if(towerScript) {
 
-		//		// Take the hit
-		//		towerScript.TakeDamage(fDamage);
-		//	}
+				// Take the hit
+				towerScript.TakeDamage(fDamage);
+			}
 
-		//	// Destroy the projectile
-		//	Die();
-		//}
+			// Destroy the projectile
+			Die();
+		}
 	}
 
 	/// <summary>

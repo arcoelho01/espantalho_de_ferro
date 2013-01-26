@@ -23,7 +23,8 @@ public class TowerAim : MonoBehaviour {
 
 	private Heart heart;
 
-	public float fHealth = 200.0f;
+	public float fHealth = 100.0f;
+	public Transform trBulletSpawnPoint;
 	
 	// Use this for initialization
 	void Start () {
@@ -109,12 +110,19 @@ public class TowerAim : MonoBehaviour {
 
 	void Shoot() {
 
-		//trCannon.transform.Translate(new Vector3(1,0,0) * Time.deltaTime);
-		//trCannon.transform.Translate(new Vector3(.3f,0,0));
 		heart.gameObject.audio.clip=heart.shotSound;
 		heart.gameObject.audio.Play();
 		// Create the bullet
-		CProjectile newBullet = (CProjectile)GameObject.Instantiate(trBulletType, transform.position, transform.rotation);
+		CProjectile newBullet;
+		if(trBulletSpawnPoint) {
+
+			newBullet = (CProjectile)GameObject.Instantiate(trBulletType, trBulletSpawnPoint.transform.position, transform.rotation);
+		}
+		else {
+
+			newBullet = (CProjectile)GameObject.Instantiate(trBulletType, transform.position, transform.rotation);
+		}
+
 		newBullet.SetShooter(this.transform);
 
 		//
