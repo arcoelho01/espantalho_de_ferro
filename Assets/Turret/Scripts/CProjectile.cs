@@ -53,6 +53,13 @@ public class CProjectile : MonoBehaviour {
 
 		if(other.gameObject.layer == 8) {
 
+			// Get the enemy component
+			enemyScript eScript = other.gameObject.GetComponent<enemyScript>();
+
+			if(eScript) {
+
+				eScript.TakeDamage(fDamage);
+			}
 			// Collision with enemy
 			Debug.LogWarning("Hit on " + other.gameObject);
 		}
