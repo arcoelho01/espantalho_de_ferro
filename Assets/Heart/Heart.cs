@@ -16,7 +16,7 @@ public class Heart : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButton(0)){
+		if(speed>0){
 			CharacterController character = GetComponent<CharacterController>();
 			Vector3 mousePos = Camera.mainCamera.ScreenToWorldPoint(Input.mousePosition);
 			Vector2 moveDir= new Vector2(0,0);
