@@ -11,7 +11,7 @@ public class CProjectile : MonoBehaviour {
 	float fAcceleration = 1.0f;
 	
 	private Vector3 direction;
-	private float fTimeToLive = 4.0f;
+	private float fTimeToLive = 10.0f;
 
 	// Use this for initialization
 	void Start () {
