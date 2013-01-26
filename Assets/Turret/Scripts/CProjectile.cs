@@ -5,8 +5,8 @@ using System.Collections;
 
 public class CProjectile : MonoBehaviour {
 
-	float fSpeed = 2.0f;
-	float fMaxSpeed = 2.5f;
+	float fSpeed = 8.0f;
+	float fMaxSpeed = 12.5f;
 	float fDamage = 10.0f;
 	float fAcceleration = 1.0f;
 	
