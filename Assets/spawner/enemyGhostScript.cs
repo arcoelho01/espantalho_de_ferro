@@ -22,8 +22,9 @@ public class enemyGhostScript : enemyScript {
 			if(iddleCont > 1){
 				iddleCont = 0;
 				iddle = false;
-				GetComponent<MeshRenderer>().enabled = true;
+				//GetComponent<MeshRenderer>().enabled = true;
 				transform.LookAt(target);
+				transform.position=new Vector3(transform.position.x,0,transform.position.z);
 			}
 		}
 	}
@@ -40,7 +41,8 @@ public class enemyGhostScript : enemyScript {
 			iddle = true;
 			randDir = Random.Range(0f, Mathf.PI*2);
 			transform.position += new Vector3(Mathf.Cos(randDir), 0, Mathf.Sin(randDir)) * 1.5f;
-			GetComponent<MeshRenderer>().enabled = false;
+			//GetComponent<MeshRenderer>().enabled = false;
+			transform.position=new Vector3(transform.position.x,-1,transform.position.z);
 		}
 	}
 }
