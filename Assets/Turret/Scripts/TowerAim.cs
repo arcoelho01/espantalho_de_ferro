@@ -10,9 +10,9 @@ public class TowerAim : MonoBehaviour {
 	private bool lastActiveState=false;
 	private float fFrequency;
 	private float fMinFrequency = 0.5f;
-	private float fMaxFrequency = 1.5f;
+	private float fMaxFrequency = 2f;
 	private float fFrequencyIncrease = .5f;
-	private float fFrequencyDecrease = .25f;
+	private float fFrequencyDecrease = .3f;
 	private float fCannonTimer = 0.0f;
 
 	public Transform trCannon = null;
@@ -62,13 +62,7 @@ public class TowerAim : MonoBehaviour {
 
 			fFrequency = Mathf.Clamp(fFrequency, fMinFrequency, fMaxFrequency);
 			
-			if(Input.GetMouseButtonDown(1)){
-				bnTowerIsActive=false;
-				heart.speed=10;
-				heart.gameObject.renderer.enabled=true;
-				heart.gameObject.audio.clip=heart.jumpOutSound;
-				heart.gameObject.audio.Play();
-			}
+			
 			// Moves the cannon accordingly to the frequency
 			if(trCannon) {
 	
@@ -95,6 +89,25 @@ public class TowerAim : MonoBehaviour {
 			Vector3 v3AimRotation = new Vector3(Input.mousePosition.x, Input.mousePosition.y, fCameraDif);
 			v3WorldPos = Camera.main.ScreenToWorldPoint(v3AimRotation);
 			transform.LookAt(v3WorldPos);
+			
+			//Frequency Management
+			
+			float freqRate;// %of frequency used
+			freqRate=(fFrequency-fMinFrequency)/(fMaxFrequency-fMinFrequency);
+			if(freqRate>=1){
+				bnTowerIsActive=false;
+				heart.speed=1+(10*(1-freqRate));
+				heart.gameObject.renderer.enabled=true;
+				heart.gameObject.audio.clip=heart.jumpOutSound;
+				heart.gameObject.audio.Play();
+			}
+			if(Input.GetMouseButtonDown(1)){
+				bnTowerIsActive=false;
+				heart.speed=1+(10*(1-freqRate));
+				heart.gameObject.renderer.enabled=true;
+				heart.gameObject.audio.clip=heart.jumpOutSound;
+				heart.gameObject.audio.Play();
+			}
 		}
 
 		
