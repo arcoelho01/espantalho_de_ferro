@@ -26,6 +26,7 @@ public class enemySpawner : MonoBehaviour {
 	}	
 	void Update () {
 		//SimpleSpawn();
+		/* Spammed Spawn
 		if(contAux > spawnRate2){
 			WaveSpawn(numberAux, enemyModels[Chance()]);
 			contAux = 0;
@@ -42,6 +43,8 @@ public class enemySpawner : MonoBehaviour {
 		contAux += Time.deltaTime;
 		numberCount += Time.deltaTime;
 		speedCount += Time.deltaTime;
+		*/
+		ComplexSpawnUpdate();
 	}
 	
 	//SIMPLE SPAWN VARIABLES
@@ -118,23 +121,23 @@ public class enemySpawner : MonoBehaviour {
 	
 	float stdCont = 0;
 	float stdContLimit = 5f;
-	float stdValue = 0;
+	float stdValue = 100;
 	float stdBase = 1;
 	float fstCont = 0;
 	float fstContLimit = 9f;
-	float fstValue = 0;
+	float fstValue = 20;
 	float fstBase = 2;
 	float ddgCont = 0;
 	float ddgContLimit = 13.5f;
-	float ddgValue = 0;
+	float ddgValue = 10;
 	float ddgBase = 3;
 	float tnkCont = 0;
 	float tnkContLimit = 17.5f;
-	float tnkValue = 0;
+	float tnkValue = 4;
 	float tnkBase = 4;
 	float gstCont = 0;
 	float gstContLimit = 21f;
-	float gstValue = 0;
+	float gstValue = 2;
 	float gstBase = 5;
 	float pnxCont = 0;
 	float pnxContLimit = 25f;
@@ -143,7 +146,7 @@ public class enemySpawner : MonoBehaviour {
 	
 	void ComplexSpawnUpdate (){
 		//adiciona nos contadores
-		float dTime = Time.deltaTime;
+		float dTime = Time.deltaTime * 4;
 		stdCont += dTime;
 		fstCont += dTime;
 		ddgBase += dTime;
@@ -204,13 +207,13 @@ public class enemySpawner : MonoBehaviour {
 		testValue += ddgValue * ddgBase;
 		if(randomNumber < testValue){
 			//spawn Dodge
-			InstantiateEnemy(enemyModels[3]);
+			InstantiateEnemy(enemyModels[2]);
 			return;
 		}
 		testValue += tnkValue * tnkBase;
 		if(randomNumber < testValue){
 			//spawn Tank
-			InstantiateEnemy(enemyModels[2]);
+			InstantiateEnemy(enemyModels[3]);
 			return;
 		}
 		testValue += gstValue * gstBase;
