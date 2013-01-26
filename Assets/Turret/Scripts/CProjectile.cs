@@ -15,12 +15,18 @@ public class CProjectile : MonoBehaviour {
 
 	Transform trShooter;
 
+	public AudioClip sfxShoot;
+
 	// Use this for initialization
 	void Start () {
 	
 		direction = transform.forward;
 		gameObject.GetComponent<SphereCollider>().isTrigger = true;
 
+		if(sfxShoot) {
+
+			AudioSource.PlayClipAtPoint(sfxShoot, transform.position);
+		}
 		StartCoroutine(kill());
 	}
 	
