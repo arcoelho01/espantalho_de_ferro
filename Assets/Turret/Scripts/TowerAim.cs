@@ -38,6 +38,8 @@ public class TowerAim : MonoBehaviour {
 	Projector pHealthProjector;
 	HealthProjector scriptHealthProjector;
 	
+	Quaternion startRotation;
+	
 	// Use this for initialization
 	void Start () {
 	
@@ -64,12 +66,19 @@ public class TowerAim : MonoBehaviour {
 			pHealthProjector = trHealthProjector.gameObject.GetComponent<Projector>();
 			scriptHealthProjector = trHealthProjector.GetComponent<HealthProjector>();
 		}
+
+		startRotation = transform.rotation;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(bnTowerIsActive!=lastActiveState){
 			lastActiveState=bnTowerIsActive;
+		}
+
+		if(!bnTowerIsActive && transform.rotation != startRotation) {
+
+			transform.rotation = Quaternion.Slerp(transform.rotation, startRotation, Time.deltaTime * 5.0f);
 		}
 
 		// Check for input and update frequency
