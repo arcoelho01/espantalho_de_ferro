@@ -8,6 +8,6 @@ public class enemyPhoenixScript : enemyScript {
 		type="Phoenix";
 		CC = gameObject.GetComponent<CharacterController>();
 		moveSpeed = 0.8f;
-		hitPoints = 100;
+		hitPoints = 20.0f;
 	}
 }

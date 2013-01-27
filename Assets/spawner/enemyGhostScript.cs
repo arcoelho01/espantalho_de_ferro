@@ -12,7 +12,7 @@ public class enemyGhostScript : enemyScript {
 		type="Ghost";
 		CC = gameObject.GetComponent<CharacterController>();
 		moveSpeed = 0.6f;
-		hitPoints = 100;
+		hitPoints = 20.0f;
 		transform.LookAt(target);
 		cont = 0;
 		iddle = false;

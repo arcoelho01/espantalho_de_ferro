@@ -8,7 +8,7 @@ public class enemyDodgerScript : enemyScript {
 		type="Dodger";
 		CC = gameObject.GetComponent<CharacterController>();
 		moveSpeed = 0.8f;
-		hitPoints = 120;
+		hitPoints = 20;
 		cont = 0;
 	}
 	
