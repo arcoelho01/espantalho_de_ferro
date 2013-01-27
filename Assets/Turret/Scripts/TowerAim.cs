@@ -107,8 +107,7 @@ public class TowerAim : MonoBehaviour {
 				// BEAT!
 				fHeartBeatTimer = 0.0f;
 
-				// DEBUG
-				Debug.LogWarning("BEAT!");
+				Shoot();
 			}	
 			
 
@@ -132,7 +131,7 @@ public class TowerAim : MonoBehaviour {
 					//Debug.Log(fCannonTimer);
 	
 					// ... and then shoots
-					Shoot();
+					//Shoot();
 				}
 	
 				trCannon.gameObject.renderer.material.color = myColor;
