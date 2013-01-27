@@ -126,7 +126,7 @@ public class enemySpawner : MonoBehaviour {
 	
 	float stdCont = 0;
 	float stdContLimit = 5f;
-	float stdValue = 70;
+	float stdValue = 30;
 	float stdBase = 1;
 	float fstCont = 0;
 	float fstContLimit = 9f;
@@ -134,15 +134,15 @@ public class enemySpawner : MonoBehaviour {
 	float fstBase = 2;
 	float ddgCont = 0;
 	float ddgContLimit = 13.5f;
-	float ddgValue = 11;
+	float ddgValue = 20;
 	float ddgBase = 3;
 	float tnkCont = 0;
 	float tnkContLimit = 17.5f;
-	float tnkValue = 4;
+	float tnkValue = 15;
 	float tnkBase = 4;
 	float gstCont = 0;
 	float gstContLimit = 21f;
-	float gstValue = 2;
+	float gstValue = 10;
 	float gstBase = 5;
 	float pnxCont = 0;
 	float pnxContLimit = 25f;
@@ -199,12 +199,12 @@ public class enemySpawner : MonoBehaviour {
 		float testValue = 0;
 		testValue += stdValue * stdBase;
 		
-		if(forceCount < forceLimit) {
+		//if(forceCount < forceLimit) {
 
-			InstantiateEnemy(enemyModels[0]);
-			forceCount++;
-			return;
-		}
+		//	InstantiateEnemy(enemyModels[0]);
+		//	forceCount++;
+		//	return;
+		//}
 
 		if(randomNumber < testValue){
 			//spawn Standart
