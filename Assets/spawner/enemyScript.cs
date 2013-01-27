@@ -5,9 +5,9 @@ public class enemyScript : MonoBehaviour {
 	
 	public Vector3 target; //posição alvo do inimigo
 	public float moveSpeed;
-	public int hitPoints;
+	public float hitPoints;
 	public string type;
-	protected float fHealth = 20.0f;
+	//protected float fHealth = 20.0f;
 	
 	public CharacterController CC; //variável que guarda a informação do componente Character Controller deste objeto
 	
@@ -30,12 +30,12 @@ public class enemyScript : MonoBehaviour {
 	/// </summary>
 	public virtual void TakeDamage(float fAmount) {
 
-		fHealth -= fAmount;
+		hitPoints -= fAmount;
 
 		// DEBUG
-		Debug.Log(this.transform + " Damage: " + fAmount + " Current health: " + fHealth);
+		Debug.Log(this.transform + " Damage: " + fAmount + " Current health: " + hitPoints);
 
-		if(fHealth <= 0) {
+		if(hitPoints <= 0) {
 			GameController game = GameObject.Find("GameController").GetComponent<GameController>();
 			game.enemiesKilled++;
 			switch(type){
