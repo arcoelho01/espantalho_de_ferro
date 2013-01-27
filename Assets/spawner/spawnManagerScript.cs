@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class spawnManagerScript : MonoBehaviour {
 
-	public GameObject[] spawner= new GameObject[4];
+	public GameObject[] spawner;
 	public float cont;
 	public float spawnRate;
 	public float decreaseRate;
