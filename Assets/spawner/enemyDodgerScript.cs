@@ -5,6 +5,7 @@ public class enemyDodgerScript : enemyScript {
 	
 	// Use this for initialization
 	void Start () {
+		type="Dodger";
 		CC = gameObject.GetComponent<CharacterController>();
 		moveSpeed = 0.8f;
 		hitPoints = 120;

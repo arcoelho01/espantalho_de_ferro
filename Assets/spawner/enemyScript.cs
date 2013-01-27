@@ -6,7 +6,7 @@ public class enemyScript : MonoBehaviour {
 	public Vector3 target; //posição alvo do inimigo
 	public float moveSpeed;
 	public int hitPoints;
-	
+	public string type;
 	protected float fHealth = 20.0f;
 	
 	public CharacterController CC; //variável que guarda a informação do componente Character Controller deste objeto
@@ -36,7 +36,28 @@ public class enemyScript : MonoBehaviour {
 		Debug.Log(this.transform + " Damage: " + fAmount + " Current health: " + fHealth);
 
 		if(fHealth <= 0) {
-
+			GameController game = GameObject.Find("GameController").GetComponent<GameController>();
+			game.enemiesKilled++;
+			switch(type){
+				case "Standart":
+					game.standartKilled++;
+				break;
+				case "Tank":
+					game.tankKilled++;
+				break;
+				case "Fast":
+					game.fastKilled++;
+				break;
+				case "Dodger":
+					game.dodgerKilled++;
+				break;
+				case "Ghost":
+					game.ghostKilled++;
+				break;
+				case "Phoenix":
+					game.phoenixKilled++;
+				break;
+			}
 			Die();
 		}
 	}

@@ -2,7 +2,14 @@ using UnityEngine;
 using System.Collections;
 
 public class GameController : MonoBehaviour {
-	public int turrentsCount=4, enemiesKilled;
+	public int turrentsCount=4,
+		enemiesKilled,
+		standartKilled,
+		fastKilled,
+		tankKilled,
+		dodgerKilled,
+		ghostKilled,
+		phoenixKilled;
 	public bool gameOver=false;
 	// Use this for initialization
 	void Start () {

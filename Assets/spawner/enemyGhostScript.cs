@@ -9,6 +9,7 @@ public class enemyGhostScript : enemyScript {
 	public Animation fly;
 	public AnimationManager manager;
 	void Start () {
+		type="Ghost";
 		CC = gameObject.GetComponent<CharacterController>();
 		moveSpeed = 0.6f;
 		hitPoints = 100;
