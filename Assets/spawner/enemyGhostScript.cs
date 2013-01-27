@@ -49,8 +49,8 @@ public class enemyGhostScript : enemyScript {
 				iddleCont = 0;
 				iddle = false;
 				//GetComponent<MeshRenderer>().enabled = true;
-				transform.LookAt(target);
-				transform.position=new Vector3(transform.position.x,0,transform.position.z);
+				transform.position=new Vector3(transform.position.x, 0.5f ,transform.position.z);
+				transform.LookAt(new Vector3(target.x, transform.position.y, target.z));
 				manager.currentAnimation=fly;
 			}
 		}
@@ -69,9 +69,7 @@ public class enemyGhostScript : enemyScript {
 			inv.pos=0;
 			inv.loopCount=1;
 			inv.infinite=false;
-			manager.currentAnimation=inv;
-			
-		
+			manager.currentAnimation=inv;		
 		}
 	}
 }

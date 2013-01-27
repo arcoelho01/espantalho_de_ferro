@@ -1,19 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\spawner\enemyGhostScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\spawner\spawnManagerScript.cs">
     <Files>
-      <File FileName="Assets\Turret\Scripts\TowerAim.cs" Line="140" Column="3" />
-      <File FileName="Assets\Menu\CrowSoundPlayer.cs" Line="11" Column="22" />
+      <File FileName="Assets\spawner\spawnManagerScript.cs" Line="21" Column="1" />
+      <File FileName="Assets\spawner\enemyGhostScript.cs" Line="1" Column="1" />
       <File FileName="Assets\spawner\enemySpawner.cs" Line="1" Column="1" />
-      <File FileName="Assets\spawner\enemyScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\spawner\enemyStandartScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\spawner\enemyFastScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\spawner\enemyTankScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\spawner\enemyDodgerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\spawner\enemyGhostScript.cs" Line="1" Column="19" />
-      <File FileName="Assets\Heart\Heart.cs" Line="1" Column="1" />
-      <File FileName="Assets\Heart\Tower.cs" Line="1" Column="1" />
-      <File FileName="Assets\Menu\startButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\spawner\enemyPhoenixScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
