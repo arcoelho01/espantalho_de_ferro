@@ -18,7 +18,7 @@ public class spawnManagerScript : MonoBehaviour {
 	void Update () {
 		if(cont >= spawnRate){
 			int rand = Random.Range (0, 4);
-			spawner[rand].GetComponent<enemySpawner>().ComplexSpawn();
+//			spawner[rand].GetComponent<enemySpawner>().ComplexSpawn();
 			//spawnRate -= decreaseRate;
 			cont = 0;
 		}

@@ -2,8 +2,12 @@ using UnityEngine;
 using System.Collections;
 
 public class enemyGhostScript : enemyScript {
-
+	public float inv_timeout=0.5f;
+	public bool going_invisible=false;
 	// Use this for initialization
+	public Animation inv;
+	public Animation fly;
+	public AnimationManager manager;
 	void Start () {
 		CC = gameObject.GetComponent<CharacterController>();
 		moveSpeed = 0.6f;
@@ -11,9 +15,31 @@ public class enemyGhostScript : enemyScript {
 		transform.LookAt(target);
 		cont = 0;
 		iddle = false;
+		
+		inv.infinite=false;
+		inv.loopCount=1;
+		for(int i=0;i<47;i++){
+			inv.sprites[i].time=inv_timeout/47;
+		}
+		fly= manager.currentAnimation;
+		
+		
 	}
 	
 	void Update (){
+		if(going_invisible){
+			inv_timeout-=Time.deltaTime;
+			if(inv_timeout<=0){
+				
+				going_invisible=false;
+				cont = 0;
+				iddle = true;
+				randDir = Random.Range(0f, Mathf.PI*2);
+				transform.position += new Vector3(Mathf.Cos(randDir), 0, Mathf.Sin(randDir)) * 1.5f;
+				//GetComponent<MeshRenderer>().enabled = false;
+				transform.position=new Vector3(transform.position.x,-10,transform.position.z);
+			}
+		}
 		if(!iddle){
 			Move ();
 			cont += Time.deltaTime;
@@ -25,6 +51,7 @@ public class enemyGhostScript : enemyScript {
 				//GetComponent<MeshRenderer>().enabled = true;
 				transform.LookAt(target);
 				transform.position=new Vector3(transform.position.x,0,transform.position.z);
+				manager.currentAnimation=fly;
 			}
 		}
 	}
@@ -36,13 +63,15 @@ public class enemyGhostScript : enemyScript {
 	
 	void Move (){
 		CC.Move(transform.TransformDirection(new Vector3(0, 0, moveSpeed*Time.deltaTime)));
-		if(cont > Random.Range(2f, 3.5f)){
-			cont = 0;
-			iddle = true;
-			randDir = Random.Range(0f, Mathf.PI*2);
-			transform.position += new Vector3(Mathf.Cos(randDir), 0, Mathf.Sin(randDir)) * 1.5f;
-			//GetComponent<MeshRenderer>().enabled = false;
-			transform.position=new Vector3(transform.position.x,-1,transform.position.z);
+		if(!going_invisible && cont > Random.Range(2f, 3.5f)){
+			going_invisible=true;
+			inv_timeout=0.5f;
+			inv.pos=0;
+			inv.loopCount=1;
+			inv.infinite=false;
+			manager.currentAnimation=inv;
+			
+		
 		}
 	}
 }
