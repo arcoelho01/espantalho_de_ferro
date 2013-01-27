@@ -15,7 +15,7 @@ public class startButton : MonoBehaviour {
 	
 	void OnMouseOver(){
 		if(Input.GetMouseButton(0)){
-			Application.LoadLevel("gameScene");
+			Application.LoadLevel("mainScene");
 		}
 	}
 }
