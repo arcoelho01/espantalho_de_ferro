@@ -149,7 +149,7 @@ public class enemySpawner : MonoBehaviour {
 		float dTime = Time.deltaTime * 4;
 		stdCont += dTime;
 		fstCont += dTime;
-		ddgBase += dTime;
+		ddgCont += dTime;
 		tnkCont += dTime;
 		gstCont += dTime;
 		pnxCont += dTime;
