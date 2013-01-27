@@ -180,13 +180,13 @@ public class TowerAim : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		if(bnTowerIsActive){
-			string stText = "Beat: " + String.Format("{0:0.00}", fFrequency) + "\n" 
-				+ String.Format("{0:0.0}", fCannonTimer + "\n" 
-						+ String.Format("{0:0.0}", fBeatsPerMinute)
-						);
-			GUI.Label(new Rect(10,10,100,100), stText);
-		}
+		//if(bnTowerIsActive){
+		//	string stText = "Beat: " + String.Format("{0:0.00}", fFrequency) + "\n" 
+		//		+ String.Format("{0:0.0}", fCannonTimer + "\n" 
+		//				+ String.Format("{0:0.0}", fBeatsPerMinute)
+		//				);
+		//	GUI.Label(new Rect(10,10,100,100), stText);
+		//}
 	}
 
 	void Shoot() {
