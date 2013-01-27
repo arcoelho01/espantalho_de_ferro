@@ -22,8 +22,14 @@ public class enemyScript : MonoBehaviour {
 	}
 	
 	public virtual void Move () {
-		transform.LookAt(target);
+		if(Vector3.Distance(transform.position, target) > 0.3f) {
+
+			transform.LookAt(target);
+		}
+
 		CC.Move(transform.TransformDirection(new Vector3(0, 0, moveSpeed*Time.deltaTime))); //transforma o vetor de movimento para a rotação atual do objeto, então usa a função CharacterController.Move() para mover
+
+
 	}
 
 	/// <summary>
