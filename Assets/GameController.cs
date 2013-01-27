@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour {
 			}
 		}
 		else{
-			Application.LoadLevel("menuScene");
+		//	Application.LoadLevel("menuScene");
 		}
 	}
 }

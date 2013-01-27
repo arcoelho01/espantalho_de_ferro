@@ -176,6 +176,7 @@ public class TowerAim : MonoBehaviour {
 	/// <summary>
 	/// </summary>
 	protected virtual void Die() {
+		Debug.Log ("morreu um");
 		transform.position=new Vector3(0,-10,0);
 		GameObject.Find("GameController").GetComponent<GameController>().turrentsCount--;
 	}
