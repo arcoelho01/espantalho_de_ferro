@@ -2,7 +2,9 @@ using UnityEngine;
 using System.Collections;
 
 public class buttonCredits : MonoBehaviour {
-
+	
+	public GameObject selecter;
+	
 	// Use this for initialization
 	void Start () {
 	
@@ -14,6 +16,7 @@ public class buttonCredits : MonoBehaviour {
 	}
 	
 	void OnMouseOver(){
+		selecter.GetComponent<selectBHV>().poss = 2;
 		if(Input.GetMouseButton(0)){
 			Application.LoadLevel("creditScene");
 		}
