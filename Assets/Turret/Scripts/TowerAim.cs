@@ -15,7 +15,7 @@ public class TowerAim : MonoBehaviour {
 	private float fFrequencyDecrease = .5f;
 	private float fCannonTimer = 0.0f;
 
-	public Transform trCannon = null;
+	//public Transform trCannon = null;
 	private Color myColor;
 
 	public CProjectile trBulletType;
@@ -49,13 +49,13 @@ public class TowerAim : MonoBehaviour {
 
 		fBeatsPerMinute = fMinBeatsPerMinute;
 
-		if(!trCannon) {
+		//if(!trCannon) {
 
-			// DEBUG
-			Debug.LogError("Cannon not defined in the inspector");
-		}
+		//	// DEBUG
+		//	Debug.LogError("Cannon not defined in the inspector");
+		//}
 
-		myColor = trCannon.gameObject.renderer.material.color;
+		//myColor = trCannon.gameObject.renderer.material.color;
 
 		if(!trHealthProjector) {
 
@@ -128,26 +128,26 @@ public class TowerAim : MonoBehaviour {
 
 
 			// Moves the cannon accordingly to the frequency
-			if(trCannon) {
+			//if(trCannon) {
 	
-				myColor.a -= 0.3f * Time.deltaTime;
-				myColor.a = Mathf.Clamp01(myColor.a);
+			//	myColor.a -= 0.3f * Time.deltaTime;
+			//	myColor.a = Mathf.Clamp01(myColor.a);
 	
-				fCannonTimer -= Time.deltaTime;
-				if(fCannonTimer <= 0.0f) {
+			//	fCannonTimer -= Time.deltaTime;
+			//	if(fCannonTimer <= 0.0f) {
 	
-					// Adjusts the new frequency
-					fCannonTimer = 1/fFrequency;
+			//		// Adjusts the new frequency
+			//		fCannonTimer = 1/fFrequency;
 	
-					// DEBUG
-					//Debug.Log(fCannonTimer);
+			//		// DEBUG
+			//		//Debug.Log(fCannonTimer);
 	
-					// ... and then shoots
-					//Shoot();
-				}
+			//		// ... and then shoots
+			//		//Shoot();
+			//	}
 	
-				trCannon.gameObject.renderer.material.color = myColor;
-			}
+			//	trCannon.gameObject.renderer.material.color = myColor;
+			//}
 		
 			// Rotates the tower
 			Vector3 v3AimRotation = new Vector3(Input.mousePosition.x, Input.mousePosition.y, fCameraDif);
