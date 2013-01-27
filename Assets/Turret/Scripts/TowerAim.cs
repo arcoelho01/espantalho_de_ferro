@@ -155,30 +155,22 @@ public class TowerAim : MonoBehaviour {
 			
 			float freqRate;// %of frequency used
 			freqRate=(fFrequency-fMinFrequency)/(fMaxFrequency-fMinFrequency);
-			if(freqRate>=1){
-				bnTowerIsActive=false;
-				heart.speed=1+(10*(1-freqRate));
-				heart.gameObject.renderer.enabled=true;
-				heart.gameObject.audio.clip=heart.jumpOutSound;
-				heart.gameObject.audio.Play();
+			if(freqRate>=1 || Input.GetMouseButtonDown(1)){
 
-				if(scriptHealthProjector) {
-
-					scriptHealthProjector.PulseEnable(bnTowerIsActive);
-				}
+				PlayerOut(freqRate);
 			}
-			if(Input.GetMouseButtonDown(1)){
-				bnTowerIsActive=false;
-				heart.speed=1+(10*(1-freqRate));
-				heart.gameObject.renderer.enabled=true;
-				heart.gameObject.audio.clip=heart.jumpOutSound;
-				heart.gameObject.audio.Play();
+			//if(Input.GetMouseButtonDown(1)){
+			//	bnTowerIsActive=false;
+			//	heart.speed=1+(10*(1-freqRate));
+			//	heart.gameObject.renderer.enabled=true;
+			//	heart.gameObject.audio.clip=heart.jumpOutSound;
+			//	heart.gameObject.audio.Play();
 
-				if(scriptHealthProjector) {
+			//	if(scriptHealthProjector) {
 
-					scriptHealthProjector.PulseEnable(bnTowerIsActive);
-				}
-			}
+			//		scriptHealthProjector.PulseEnable(bnTowerIsActive);
+			//	}
+			//}
 		}
 
 		
@@ -262,5 +254,26 @@ public class TowerAim : MonoBehaviour {
 		Debug.Log ("morreu um");
 		transform.position=new Vector3(0,-10,0);
 		GameObject.Find("GameController").GetComponent<GameController>().turrentsCount--;
+		PlayerOut(1.0f);
+
+		// Player is here? Get out!
+	}
+
+
+	/// <summary>
+	/// Forces the player out of the tower.
+	/// </summary>
+	void PlayerOut(float freqRate) {
+
+				bnTowerIsActive=false;
+				heart.speed=1+(10*(1-freqRate));
+				heart.gameObject.renderer.enabled=true;
+				heart.gameObject.audio.clip=heart.jumpOutSound;
+				heart.gameObject.audio.Play();
+
+				if(scriptHealthProjector) {
+
+					scriptHealthProjector.PulseEnable(bnTowerIsActive);
+				}
 	}
 }
