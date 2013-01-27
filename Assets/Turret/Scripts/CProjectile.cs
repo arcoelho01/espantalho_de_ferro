@@ -5,10 +5,10 @@ using System.Collections;
 
 public class CProjectile : MonoBehaviour {
 
-	float fSpeed = 8.0f;
-	float fMaxSpeed = 12.5f;
+	float fSpeed = 10.0f;
+	float fMaxSpeed = 15.0f;
 	float fDamage = 10.0f;
-	float fAcceleration = 1.0f;
+	float fAcceleration = 2.0f;
 	
 	private Vector3 direction;
 	private float fTimeToLive = 10.0f;

@@ -10,9 +10,9 @@ public class TowerAim : MonoBehaviour {
 	private bool lastActiveState=false;
 	private float fFrequency;
 	private float fMinFrequency = 0.5f;
-	private float fMaxFrequency = 2f;
+	private float fMaxFrequency = 2.5f;
 	private float fFrequencyIncrease = .5f;
-	private float fFrequencyDecrease = .3f;
+	private float fFrequencyDecrease = .5f;
 	private float fCannonTimer = 0.0f;
 
 	public Transform trCannon = null;
