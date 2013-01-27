@@ -14,7 +14,7 @@ public class TowerAim : MonoBehaviour {
 	private float fFrequencyIncrease = .5f;
 	private float fFrequencyDecrease = .5f;
 	private float fCannonTimer = 0.0f;
-
+	public bool dead=false;
 	//public Transform trCannon = null;
 	private Color myColor;
 
@@ -254,6 +254,10 @@ public class TowerAim : MonoBehaviour {
 	/// <summary>
 	/// </summary>
 	protected virtual void Die() {
+		if(dead)
+			return;
+		
+		dead=true;
 		Debug.Log ("morreu um");
 		transform.position=new Vector3(0,-10,0);
 		GameObject.Find("GameController").GetComponent<GameController>().turrentsCount--;
