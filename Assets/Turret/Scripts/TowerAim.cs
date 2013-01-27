@@ -214,7 +214,7 @@ public class TowerAim : MonoBehaviour {
 	    	bnTowerIsActive=true;
 			heart=other.GetComponent<Heart>();
 			heart.transform.position=transform.position;
-			heart.gameObject.renderer.enabled=false;
+			//heart.gameObject.renderer.enabled=false;
 			heart.speed=0;
 			heart.gameObject.audio.clip=heart.jumpInSound;
 			heart.gameObject.audio.Play();
@@ -277,7 +277,7 @@ public class TowerAim : MonoBehaviour {
 
 				bnTowerIsActive=false;
 				heart.speed=1+(10*(1-freqRate));
-				heart.gameObject.renderer.enabled=true;
+				//heart.gameObject.renderer.enabled=true;
 				heart.gameObject.audio.clip=heart.jumpOutSound;
 				heart.gameObject.audio.Play();
 

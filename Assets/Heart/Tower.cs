@@ -14,10 +14,10 @@ public class Tower : MonoBehaviour {
 	void Update () {
 		if(heartIsHere!=lastHeartState){
 			lastHeartState=heartIsHere;
-			if(heartIsHere)
-				renderer.material.color=new Color(0,0,0);
-			else
-				renderer.material.color=new Color(1,1,1);
+			//if(heartIsHere)
+			//	renderer.material.color=new Color(0,0,0);
+			//else
+			//	renderer.material.color=new Color(1,1,1);
 		}
 		if(heartIsHere){
 			if(Input.GetMouseButtonDown(0)){
@@ -29,7 +29,7 @@ public class Tower : MonoBehaviour {
 				Debug.Log ("exit");
 				heartIsHere=false;
 				heart.speed=10;
-				heart.gameObject.renderer.enabled=true;
+				//heart.gameObject.renderer.enabled=true;
 				heart.gameObject.audio.clip=heart.jumpOutSound;
 				heart.gameObject.audio.Play();
 			}
@@ -42,7 +42,7 @@ public class Tower : MonoBehaviour {
 	    	heartIsHere=true;
 			heart=other.GetComponent<Heart>();
 			heart.transform.position=transform.position;
-			heart.gameObject.renderer.enabled=false;
+			//heart.gameObject.renderer.enabled=false;
 			heart.speed=0;
 			heart.gameObject.audio.clip=heart.jumpInSound;
 			heart.gameObject.audio.Play();
