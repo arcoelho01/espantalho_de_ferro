@@ -20,7 +20,7 @@ public class enemyGhostScript : enemyScript {
 		inv.infinite=false;
 		inv.loopCount=1;
 		for(int i=0;i<47;i++){
-			inv.sprites[i].time=inv_timeout/47;
+			inv.sprites[i].time=0.01f;
 		}
 		fly= manager.currentAnimation;
 		
@@ -66,9 +66,9 @@ public class enemyGhostScript : enemyScript {
 		CC.Move(transform.TransformDirection(new Vector3(0, 0, moveSpeed*Time.deltaTime)));
 		if(!going_invisible && cont > Random.Range(2f, 3.5f)){
 			going_invisible=true;
-			inv_timeout=0.5f;
+			inv_timeout=47*0.01f;
 			inv.pos=0;
-			inv.loopCount=1;
+			inv.loopCount=0;
 			inv.infinite=false;
 			manager.currentAnimation=inv;		
 		}
