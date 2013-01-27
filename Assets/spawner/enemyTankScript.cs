@@ -7,7 +7,7 @@ public class enemyTankScript : enemyScript {
 	void Start () {
 		type="Tank";
 		CC = gameObject.GetComponent<CharacterController>();
-		moveSpeed = 0.4f;
+		moveSpeed = 0.5f;
 		hitPoints = 50.0f;
 	}
 }

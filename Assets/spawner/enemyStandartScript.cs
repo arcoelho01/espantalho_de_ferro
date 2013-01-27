@@ -7,7 +7,7 @@ public class enemyStandartScript : enemyScript {
 	void Start () {
 		type="Standart";
 		CC = gameObject.GetComponent<CharacterController>();
-		moveSpeed = 0.8f;
+		moveSpeed = 1.0f;
 		hitPoints = 20.0f;
 	}
 }

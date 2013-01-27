@@ -11,7 +11,7 @@ public class enemyGhostScript : enemyScript {
 	void Start () {
 		type="Ghost";
 		CC = gameObject.GetComponent<CharacterController>();
-		moveSpeed = 0.6f;
+		moveSpeed = 0.75f;
 		hitPoints = 20.0f;
 		transform.LookAt(target);
 		cont = 0;

@@ -7,7 +7,7 @@ public class enemyFastScript : enemyScript {
 	void Start () {
 		type="Fast";
 		CC = gameObject.GetComponent<CharacterController>();
-		moveSpeed = 1.6f;
+		moveSpeed = 2.0f;
 		hitPoints = 10;
 	}
 }
