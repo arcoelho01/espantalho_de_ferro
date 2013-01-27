@@ -254,9 +254,12 @@ public class TowerAim : MonoBehaviour {
 		Debug.Log ("morreu um");
 		transform.position=new Vector3(0,-10,0);
 		GameObject.Find("GameController").GetComponent<GameController>().turrentsCount--;
-		PlayerOut(1.0f);
 
 		// Player is here? Get out!
+		PlayerOut(1.0f);
+
+		// Disable the tower collider
+		collider.enabled = false;
 	}
 
 
