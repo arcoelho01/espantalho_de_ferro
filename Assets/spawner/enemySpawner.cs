@@ -9,6 +9,8 @@ public class enemySpawner : MonoBehaviour {
 	public float Vsize; //tamanho vertical do spawner
 	public float Hsize; //tamanho horizontal do spawner
 	public List<GameObject> enemyModels; //lista de objetos inimigos que podem ser criados
+	int forceCount;
+	int forceLimit;
 		
 	GameObject tempEnemyRef; //referência temporaria ao inimigo recém-spawnado
 	enemyScript tempScriptRef; //referência temporária ao script
@@ -23,6 +25,9 @@ public class enemySpawner : MonoBehaviour {
 		spawnRate2 = 3f;
 		increaseRate = 0.01f;
 		numberAux = 1;
+
+		forceCount = 0;
+		forceLimit = 10;
 	}	
 	void Update () {
 		//SimpleSpawn();
@@ -121,11 +126,11 @@ public class enemySpawner : MonoBehaviour {
 	
 	float stdCont = 0;
 	float stdContLimit = 5f;
-	float stdValue = 60;
+	float stdValue = 70;
 	float stdBase = 1;
 	float fstCont = 0;
 	float fstContLimit = 9f;
-	float fstValue = 22;
+	float fstValue = 25;
 	float fstBase = 2;
 	float ddgCont = 0;
 	float ddgContLimit = 13.5f;
@@ -133,11 +138,11 @@ public class enemySpawner : MonoBehaviour {
 	float ddgBase = 3;
 	float tnkCont = 0;
 	float tnkContLimit = 17.5f;
-	float tnkValue = 5;
+	float tnkValue = 4;
 	float tnkBase = 4;
 	float gstCont = 0;
 	float gstContLimit = 21f;
-	float gstValue = 3;
+	float gstValue = 2;
 	float gstBase = 5;
 	float pnxCont = 0;
 	float pnxContLimit = 25f;
@@ -175,10 +180,10 @@ public class enemySpawner : MonoBehaviour {
 			gstValue++;
 			gstCont = 0;
 		}
-		if(pnxCont >= pnxContLimit){
-			pnxValue++;
-			pnxCont = 0;
-		}
+		//if(pnxCont >= pnxContLimit){
+		//	pnxValue++;
+		//	pnxCont = 0;
+		//}
 	}
 	
 	public void ComplexSpawn (){
@@ -193,6 +198,14 @@ public class enemySpawner : MonoBehaviour {
 		float randomNumber = Random.Range(1, totalValue);
 		float testValue = 0;
 		testValue += stdValue * stdBase;
+		
+		if(forceCount < forceLimit) {
+
+			InstantiateEnemy(enemyModels[0]);
+			forceCount++;
+			return;
+		}
+
 		if(randomNumber < testValue){
 			//spawn Standart
 			InstantiateEnemy(enemyModels[0]);

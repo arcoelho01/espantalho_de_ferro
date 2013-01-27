@@ -11,8 +11,10 @@ public class HealthProjector : MonoBehaviour {
 	float fTimer = 0.0f;
 	public float fMaxDistance = 1.0f;
 	float fSize;
+	int textureIdx = 0;
 
-	public Material[] healthMaterials = new Material[3];
+	public Material[] healthMaterialsActive = new Material[3];
+	public Material[] healthMaterialsInactive = new Material[3];
 
 	Vector3 v3OriginalScale;
 	float fOriginalSize;
@@ -28,6 +30,7 @@ public class HealthProjector : MonoBehaviour {
 
 			thisProjector.orthographicSize = fOriginalSize + fMaxDistance;
 		}
+		this.thisProjector.material	= (bnPulseEnable == true ? healthMaterialsActive[textureIdx] : healthMaterialsInactive[textureIdx]);
 	}
 	
 	// Update is called once per frame
@@ -61,19 +64,22 @@ public class HealthProjector : MonoBehaviour {
 	/// </summary>
 	public void CheckAndShowHealth(float fHealth) {
 
+		Debug.Log(fHealth);
 		// Updates the color of the cursor, changing it's textures
-		if(fHealth < .33)  {
+		if(fHealth < .34)  {
 
-			this.thisProjector.material = healthMaterials[2];
+			textureIdx = 2;
 		}
-		else if(fHealth <= .66) {
+		else if(fHealth <= .67) {
 
-			this.thisProjector.material = healthMaterials[1];
+			textureIdx = 1;
 		}
 		else {
 
-			this.thisProjector.material = healthMaterials[0];
+			textureIdx = 0;
 		}
+
+		this.thisProjector.material	= (bnPulseEnable == true ? healthMaterialsActive[textureIdx] : healthMaterialsInactive[textureIdx]);
 	}
 
 	/// <summary>
@@ -88,5 +94,7 @@ public class HealthProjector : MonoBehaviour {
 
 			thisProjector.orthographicSize = fOriginalSize + fMaxDistance;
 		}
+
+		this.thisProjector.material	= (bnPulseEnable == true ? healthMaterialsActive[textureIdx] : healthMaterialsInactive[textureIdx]);
 	}
 }

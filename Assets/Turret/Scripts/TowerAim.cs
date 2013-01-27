@@ -23,7 +23,8 @@ public class TowerAim : MonoBehaviour {
 
 	private Heart heart;
 
-	public float fHealth = 30.0f;
+	float fHealth = 30.0f;
+	float fMaxHealth;
 	public Transform trBulletSpawnPoint;
 
 	// Heartbeat stuff
@@ -68,6 +69,8 @@ public class TowerAim : MonoBehaviour {
 		}
 
 		startRotation = transform.rotation;
+
+		fMaxHealth = fHealth;
 	}
 	
 	// Update is called once per frame
@@ -236,7 +239,7 @@ public class TowerAim : MonoBehaviour {
 
 		if(scriptHealthProjector) {
 
-			scriptHealthProjector.CheckAndShowHealth(fHealth/30);
+			scriptHealthProjector.CheckAndShowHealth(fHealth/fMaxHealth);
 		}
 
 		// DEBUG
